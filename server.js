@@ -39,3 +39,8 @@ app.get('/bookings', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.get('/', (req, res) => {
+  res.send('Car Booking API is running 🚗');
+});
+
