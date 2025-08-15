@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-booking-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: car-booking-app
+  template:
+    metadata:
+      labels:
+        app: car-booking-app
+    spec:
+      containers:
+        - name: car-booking-app
+          image: your-dockerhub-username/car-booking-app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongo:27017/car_booking"
