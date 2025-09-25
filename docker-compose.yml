@@ -5,7 +5,7 @@ services:
     build: .
     container_name: car-booking-app
     ports:
-      - "3000:3000"
+      - "3000:3001"
     environment:
       - MONGO_URI=mongodb://mongo:27017/car_booking
     depends_on:
