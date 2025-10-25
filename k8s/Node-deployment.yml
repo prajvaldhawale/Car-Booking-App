@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: car-booking-app
-          image: your-dockerhub-username/car-booking-app:latest
+          image: prajvaldhawale380/car-booking-app
           ports:
             - containerPort: 3001
           env:
