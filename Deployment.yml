@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-booking-app
+  labels:
+    app: car-booking-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: car-booking-app
+  template:
+    metadata:
+      labels:
+        app: car-booking-app
+    spec:
+      containers:
+      - name: car-booking-app
+        image: prajvaldhawale380/car-booking-app
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-booking-app-service
+spec:
+  selector:
+    app: car-booking-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
+  type: LoadBalancer
