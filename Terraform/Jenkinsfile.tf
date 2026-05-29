@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Terraform Apply') {
-            steps {
+             steps {
                 dir('Terraform/') {
                     sh 'terraform apply -auto-approve -var-file=dev/dev.tf'
                 }
